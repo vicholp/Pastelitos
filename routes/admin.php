@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminController;
 use App\Models\Recipe;
 
 /*
@@ -13,8 +14,7 @@ use App\Models\Recipe;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function(){
-    $recipe = Recipe::find(1)->ingredients;
-    dd($recipe[0]->pivot->quantity);
-});
-Route::view('login', 'auth.login')->name('login');
+
+Route::get('/', [AdminController::class, 'main']);
+Route::get('login', [AdminController::class, 'main']);
+
