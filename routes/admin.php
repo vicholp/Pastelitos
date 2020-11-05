@@ -16,5 +16,5 @@ use App\Models\Recipe;
 */
 
 Route::get('/', [AdminController::class, 'main']);
-Route::get('login', [AdminController::class, 'main']);
+
 

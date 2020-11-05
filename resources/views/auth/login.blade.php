@@ -26,11 +26,11 @@
     <div class="card  mb-3">
       <div class="card-body">
 
-        <form  action='login' method='POST'>
+        <form action='login' method='POST'>
           @csrf
           <div class="form-group">
-            <label for="username">Username</label>
-            <input type="email" class="form-control" name="username" id="username" placeholder="Nombre de usuario" required>
+            <label for="email">Username</label>
+            <input type="email" class="form-control" name="email" id="username" placeholder="Nombre de usuario" required>
 
           </div>
           <div class="form-group">

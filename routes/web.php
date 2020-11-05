@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use App\Models\Recipe;
 
 /*
@@ -14,7 +15,7 @@ use App\Models\Recipe;
 |
 */
 Route::get('/', function(){
-    $recipe = Recipe::find(1)->ingredients;
-    dd($recipe[0]->pivot->quantity);
+    return 'holi';
 });
 Route::view('login', 'auth.login')->name('login');
+Route::post('login', [LoginController::class, 'authenticate']);
