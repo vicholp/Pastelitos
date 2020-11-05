@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\RecipeController;
 use App\Models\Recipe;
 
 /*
@@ -16,5 +17,7 @@ use App\Models\Recipe;
 */
 
 Route::get('/', [AdminController::class, 'main']);
+
+Route::resource('recipes', RecipeController::class);
 
 

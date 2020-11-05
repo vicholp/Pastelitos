@@ -6,7 +6,7 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col">
-
+        <a href="recipes" class="btn btn-secondary">kk</a>
     </div>
   </div>
 </div>
