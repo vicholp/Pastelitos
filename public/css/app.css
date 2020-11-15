@@ -20,6 +20,8 @@ nav {
   font-family: Pacifico
 }
 
+
+
 .shadow-primary{
   box-shadow: 0 .5rem 1rem rgba(0,123,255,.15)!important;
 }
@@ -68,6 +70,10 @@ nav {
 }
 .bg-blue {
   background-color: #DEEEFF;
+}
+
+.bg-pink{
+  background-color: #FEBCC8;
 }
 
 

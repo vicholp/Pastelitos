@@ -26,7 +26,7 @@
   <!--Navbar-->
 
   <nav class="navbar shadow-sm navbar-expand-lg navbar-light bg-blue">
-    <a class="navbar-brand" href="/admin">@yield('title')</a>
+    <a class="pacifico text-pink" href="/admin"><h3>@yield('title')</h3></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
