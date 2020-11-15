@@ -1,12 +1,12 @@
 @extends('admin.template.main')
 
-@section('title', 'Recetas')
+@section('title', 'Home')
 
 @section('content')
 <div class="container mt-4">
   <div class="row">
     <div class="col">
-        <a href="recipes" class="btn btn-secondary">kk</a>
+        <a href="admin/recipes" class="btn btn-secondary">kk</a>
     </div>
   </div>
 </div>

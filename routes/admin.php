@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\RecipeController;
+use App\Http\Controllers\Admin\IngredientController;
 use App\Models\Recipe;
 
 /*
@@ -19,5 +20,6 @@ use App\Models\Recipe;
 Route::get('/', [AdminController::class, 'main']);
 
 Route::resource('recipes', RecipeController::class);
+Route::resource('ingredients', IngredientsController::class);
 
 

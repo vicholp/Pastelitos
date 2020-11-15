@@ -26,7 +26,7 @@
   <!--Navbar-->
 
   <nav class="navbar shadow-sm navbar-expand-lg navbar-light bg-blue">
-    <a class="navbar-brand" href="/admin/home">@yield('title')</a>
+    <a class="navbar-brand" href="/admin">@yield('title')</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -34,7 +34,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/admin/home">Inicio <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/admin">Inicio <span class="sr-only">(current)</span></a>
         </li>
       </ul>
       <span class="navbar-text">
@@ -50,12 +50,11 @@
 
   <!-- Imports -->
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('src/css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.materialdesignicons.com/5.1.45/css/materialdesignicons.min.css" >
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="{{ asset('src/js/admin.js') }}"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
 
     @yield('importFoot')

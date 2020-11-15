@@ -1,0 +1,77 @@
+@font-face { font-family: Pacifico; src: url('/src/fonts/Pacifico.ttf'); }
+@font-face { font-family: Cookie; src: url('/src/fonts/Cookie-Regular.ttf'); }
+
+nav {
+  min-height: 80px;
+  width: 100vw;
+}
+
+.img-vitrina{
+  height: 35vh;
+  object-fit: contain;
+}
+
+.img-portada{
+  height: 25vh;
+  object-fit: cover;
+}
+
+.pacifico{
+  font-family: Pacifico
+}
+
+.shadow-primary{
+  box-shadow: 0 .5rem 1rem rgba(0,123,255,.15)!important;
+}
+.shadow-success{
+  box-shadow: 0 .5rem 1rem rgba(30,126,52,.15)!important;
+}
+.shadow-danger{
+  box-shadow: 0 .5rem 1rem rgba(248,215,218,.60)!important;
+}
+.shadow-info{
+  box-shadow: 0 .5rem 1rem rgba(209,236,241,.60)!important;
+}
+
+#div-stickyButtons {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+}
+.overlay-div{
+   height:100%;
+   width: 100%;
+   position:absolute;
+   background-color:#000;
+   opacity:.30;
+
+}
+
+/* Colors */
+.bg-ortopedia{
+  background-color: #461b7e
+}
+
+.bg-orange{
+  background-color: #fd7e14
+}
+
+.bg-black {
+  background-color: #222;
+
+}
+
+.bg-lightblue {
+  background-color: #E0FEFE;
+}
+.bg-blue {
+  background-color: #DEEEFF;
+}
+
+
+.text-pink{
+    color: #FEBCC8;
+}
+

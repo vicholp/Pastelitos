@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Recipe;
+use App\Models\Ingredient;
 use Illuminate\Http\Request;
 
-use App\Models\Ingredient;
-
-class RecipeController extends Controller
+class IngredientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +15,7 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        $recipes = Recipe::get();
-        return view('admin.recipes.index', ['user' => 'Josefita', 'recipes' => $recipes]);
+        //
     }
 
     /**
@@ -28,8 +25,7 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        $ingredients = Ingredient::orderBy('name', 'asc')->get();
-        return view('admin.recipes.create', ['user' => 'Josefita', 'ingredients' => $ingredients]);
+        //
     }
 
     /**
@@ -46,21 +42,21 @@ class RecipeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Recipe  $recipe
+     * @param  \App\Models\Ingredient  $ingredient
      * @return \Illuminate\Http\Response
      */
-    public function show(Recipe $recipe)
+    public function show(Ingredient $ingredient)
     {
-        return view('admin.recipes.show', ['user' => 'Josefita', 'recipe' => $recipe]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Recipe  $recipe
+     * @param  \App\Models\Ingredient  $ingredient
      * @return \Illuminate\Http\Response
      */
-    public function edit(Recipe $recipe)
+    public function edit(Ingredient $ingredient)
     {
         //
     }
@@ -69,10 +65,10 @@ class RecipeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Recipe  $recipe
+     * @param  \App\Models\Ingredient  $ingredient
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Recipe $recipe)
+    public function update(Request $request, Ingredient $ingredient)
     {
         //
     }
@@ -80,10 +76,10 @@ class RecipeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Recipe  $recipe
+     * @param  \App\Models\Ingredient  $ingredient
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Recipe $recipe)
+    public function destroy(Ingredient $ingredient)
     {
         //
     }

@@ -22,7 +22,12 @@ class RecipeFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->sentence(3)
+            'name' => $this->faker->sentence(3),
+            'link' => $this->faker->url(3),
+            'detail' => $this->faker->url(3),
+            'vegan' => "vegano",
+            'quantity' => $this->faker->url(2)
+
         ];
     }
 }

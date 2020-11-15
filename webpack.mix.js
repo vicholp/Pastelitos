@@ -11,9 +11,16 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        require('postcss-import'),
-        require('tailwindcss'),
-    ])
-    .webpackConfig(require('./webpack.config'));
+mix.scripts([
+            ],
+    'public/js/all.js');
+
+mix.copyDirectory('resources/js_view/', 'public/js')
+
+mix.styles([
+      'resources/css/main.css',
+      'resources/css/rfs.css',
+      'resources/css/mdi.css'],
+    'public/css/app.css');
+
+mix.browserSync('localhost:80');

@@ -17,6 +17,10 @@ class CreateRecipesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
+            $table->string('link');
+            $table->string('detail');
+            $table->string('quantity');
+            $table->string('vegan');
             $table->float('factor')->default(1.0);
         });
     }

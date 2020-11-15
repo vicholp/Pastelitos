@@ -7,7 +7,8 @@
     <div class="container-xl">
       <div class="row">
         <div class="col">
-            <h1 class="display-4 mt-2 mb-5 text-pink" style="font-family: Pacifico">Mis Recetas 🍰</h1>
+            <h1 class="display-4 mt-2 mb-5 text-pink" style="font-family: Pacifico">Mis Recetitas 🍰</h1>
+            <a href="recipes/create" class="btn btn-success mdi mdi-new-box"></a>
             <table class="table table-hover">
               <thead>
                 <tr>
