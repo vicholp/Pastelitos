@@ -28,8 +28,7 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        $ingredients = Ingredient::orderBy('name', 'asc')->get();
-        return view('admin.recipes.create', ['user' => 'Josefita', 'ingredients' => $ingredients]);
+        return view('admin.recipes.create', ['user' => 'Josefita']);
     }
 
     /**
@@ -94,6 +93,19 @@ class RecipeController extends Controller
      */
     public function destroy(Recipe $recipe)
     {
-        //
+
+    }
+
+    public function editIngredients(Recipe $recipe){
+      $ingredients = Ingredient::orderBy('id', 'asc')->get();
+
+      return view('admin.recipes.ingredients', ['user' => 'Josefita', 'recipe' => $recipe, 'ingredients' => $ingredients]);
+    }
+    public function updateIngredients(Recipe $recipe, Request $request){
+        foreach ($request->except('_token') as $key => $value) {
+            echo $key . " __ " . $value . "<br>";
+            $recipe->ingredients()->attach($key, ['quantity' => $value]);
+        }
+        return view('admin.recipes.show', ['user' => 'Josefita', 'recipe' => $recipe]);
     }
 }

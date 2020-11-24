@@ -23,26 +23,27 @@
 </head>
 <body>
 
+
   <!--Navbar-->
+    <nav class="navbar shadow-sm navbar-expand-lg navbar-light bg-blue">
+      <a class="pacifico text-pink" href="/admin"><h3>@yield('title')</h3></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <nav class="navbar shadow-sm navbar-expand-lg navbar-light bg-blue">
-    <a class="pacifico text-pink" href="/admin"><h3>@yield('title')</h3></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/admin">Inicio <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        <span class="navbar-text">
+          {{$user}}
+          <a class="btn ml-3 btn-outline-secondary" href="/admin/logout" role="button">Logout</a>
+        </span>
+      </div>
+    </nav>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/admin">Inicio <span class="sr-only">(current)</span></a>
-        </li>
-      </ul>
-      <span class="navbar-text">
-        {{$user}}
-        <a class="btn ml-3 btn-outline-secondary" href="/admin/logout" role="button">Logout</a>
-      </span>
-    </div>
-  </nav>
 
   <!-- Content -->
 
@@ -59,6 +60,11 @@
 
     @yield('importFoot')
 
+
+  <div id="div-stickyButtons">
+    @yield('stickyButton')
+
+  </div>
 </body>
 
 </html>

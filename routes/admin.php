@@ -19,7 +19,11 @@ use App\Models\Recipe;
 
 Route::get('/', [AdminController::class, 'main']);
 
+Route::get('recipe/{recipe}/ingredients', [RecipeController::class, 'editIngredients']);
+
+Route::post('recipe/{recipe}/ingredients', [RecipeController::class, 'updateIngredients']);
+
 Route::resource('recipes', RecipeController::class);
-Route::resource('ingredients', IngredientsController::class);
+Route::resource('ingredients', IngredientController::class);
 
 

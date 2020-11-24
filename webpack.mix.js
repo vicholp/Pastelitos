@@ -15,7 +15,7 @@ mix.scripts([
             ],
     'public/js/all.js');
 
-mix.copyDirectory('resources/js_view/', 'public/js')
+mix.scripts('resources/js_view/recipe_ingredients.js', 'public/js/recipe_ingredients.js').version();
 
 mix.styles([
       'resources/css/main.css',

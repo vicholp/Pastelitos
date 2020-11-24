@@ -22,9 +22,6 @@ class CreateIngredientsTable extends Migration
             $table->string('image')->nullable();
             $table->integer('remaining_quantity')->default(0);
             $table->set('type', ['intangible', 'consumable', 'package'])->default('consumable');
-
-
-
         });
     }
 

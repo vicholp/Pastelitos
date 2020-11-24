@@ -14,8 +14,6 @@ use App\Models\Recipe;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function(){
-    return 'holi';
-});
+Route::view('/', 'shop.index');
 Route::view('login', 'auth.login')->name('login');
 Route::post('login', [LoginController::class, 'authenticate']);

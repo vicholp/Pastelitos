@@ -1,4 +1,5 @@
 {
-    "/js/all.js": "/js/all.js",
-    "/css/app.css": "/css/app.css"
+    "/js/all.js": "/js/all.js?id=d41d8cd98f00b204e980",
+    "/js/recipe_ingredients.js": "/js/recipe_ingredients.js?id=de111404e007c1036c43",
+    "/css/app.css": "/css/app.css?id=2c50676f1324c405df67"
 }

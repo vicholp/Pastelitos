@@ -15,7 +15,8 @@ class IngredientController extends Controller
      */
     public function index()
     {
-        //
+        $ingredients = Ingredient::get();
+        return view('admin.ingredients.index', ['user' => 'Josefita', 'ingredients' => $ingredients]);
     }
 
     /**
@@ -25,7 +26,7 @@ class IngredientController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.ingredients.create', ['user' => 'Josefita']);
     }
 
     /**
@@ -36,7 +37,15 @@ class IngredientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ingredient = new Ingredient;
+        $ingredient->name = $request->ingredient_name;
+        $ingredient->type = $request->ingredient_type;
+        $ingredient->unit = $request->ingredient_unit;
+        $ingredient->unit_price = $request->ingredient_unitPrice;
+        $ingredient->remaining_quantity = $request->ingredient_quantity;
+        $ingredient->save();
+        $ingredients = Ingredient::get();
+        return view('admin.ingredients.index', ['user' => 'Josefita', 'ingredients' => $ingredients]);
     }
 
     /**
@@ -47,7 +56,7 @@ class IngredientController extends Controller
      */
     public function show(Ingredient $ingredient)
     {
-        //
+        return view('admin.ingredients.show', ['user' => 'Josefita', 'ingredient' => $ingredient]);
     }
 
     /**
@@ -83,4 +92,6 @@ class IngredientController extends Controller
     {
         //
     }
+
+
 }
