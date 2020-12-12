@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\RecipeController;
 use App\Http\Controllers\Admin\IngredientController;
 use App\Models\Recipe;
+use App\Models\Ingredient;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,10 @@ Route::get('/', [AdminController::class, 'main']);
 Route::get('recipe/{recipe}/ingredients', [RecipeController::class, 'editIngredients']);
 
 Route::post('recipe/{recipe}/ingredients', [RecipeController::class, 'updateIngredients']);
+
+Route::get('ingredients/query/{query}', function ($query) {
+  return Ingredient::usingSearchString($query)->get();
+});
 
 Route::resource('recipes', RecipeController::class);
 Route::resource('ingredients', IngredientController::class);

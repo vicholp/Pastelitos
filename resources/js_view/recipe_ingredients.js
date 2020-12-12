@@ -1,24 +1,29 @@
 function search(){
-  var arg = document.querySelector("#searchIngredient").value.split(" ").filter(String);
-  var results = listSearch(arg, ingredients)
-  for (result of results){
-    console.log(result.name)
-  }
-  var table = document.querySelector("#div-ingredientsAdd")
+  let arg = document.querySelector("#searchIngredient").value.split(" ").filter(String);
+  let table = document.querySelector("#div-ingredientsAdd")
+  fetch(`/admin/ingredients/query/${arg}`, {method: 'GET'})
+    .then( function(response) {
+        if (response.status !== 200) return false;
+        response.json().then(function(data) {
+          table.textContent = ""
+          console.log(data)
+          for (ingredient of data){
+            console.log(ingredient)
+            let t = document.querySelector("#template-ingredientAdd").cloneNode(true).content;
 
-  table.textContent = ""
+            t.querySelector("h5").textContent = `${ingredient.name}`
+            t.querySelector("button").setAttribute('onclick',`add(${ingredient.id})`);
 
-  for (const [i, ingredient] of results.entries()){
+            table.appendChild(t);
+          }
+          $('#exampleModal').modal('show')
+        });
+      }
+    )
+    .catch(function(err) {
+      return false;
 
-    var t = document.querySelector("#template-ingredientAdd").cloneNode(true).content;
-
-    t.querySelector("h5").textContent = `${ingredient.name}`
-    t.querySelector("button").setAttribute('onclick',`add(${i})`);
-
-    table.appendChild(t);
-
-  }
-  $('#exampleModal').modal('show')
+    });
 }
 
 
