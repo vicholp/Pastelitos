@@ -2,12 +2,17 @@
 
 @section('title', 'Peculiar Bakery')
 @section('importHead')
-<script type="text/javascript">
-  const ingredients = {!! $ingredients->toJson() !!};
-  const recipe_ingredients = {!! $recipe->ingredients->toJson() !!};
-</script>
 
 <script type="text/javascript" src="{{mix("js/recipe_ingredients.js")}}"></script>
+<script type="text/javascript">
+  const recipe_id = {{$recipe->id}}
+  let recipe_ingredients =[
+    @foreach ($recipe->ingredients as $ingredient)
+      {{$ingredient->id}},
+    @endforeach
+  ]
+
+</script>
 @endsection
 
 @section('content')
@@ -27,20 +32,32 @@
             <form action="/admin/recipe/{{$recipe->id}}/ingredients" method="POST">
               @csrf
               <template id="template-ingredientAdded">
-                <div class="mt-3">
+                <div class="div-ingredient mt-3">
                   <label for="">Lechesita</label>
                   <div class="input-group">
-                    <input type="text" class="form-control" name="">
+                    <input type="number" step="0.01" class="form-control" name="" required>
                     <div class="input-group-append">
                       <span class="input-group-text">L</span>
-                      <button  type="button" class="btn btn-danger">x</button>
+                      <button type="button" class="btn btn-danger">x</button>
                     </div>
                   </div>
                 </div>
               </template>
               <div id="div-ingredients">
+                @foreach ($recipe->ingredients as $ingredient)
+                  <div class="div-ingredient mt-3" data-ingredient="{{$ingredient->id}}">
+                    <label for="">{{$ingredient->name}}</label>
+                    <div class="input-group">
+                      <input type="number" step="0.01" class="form-control" name="{{$ingredient->id}}" value="{{$ingredient->pivot->quantity}}" required>
+                      <div class="input-group-append">
+                        <span class="input-group-text">{{$ingredient->unit}}</span>
+                        <button type="button" class="btn btn-danger" onclick="removeIngredient({{$ingredient->id}})">x</button>
+                      </div>
+                    </div>
+                  </div>
+                @endforeach
               </div>
-              <button type="submit" class="btn btn-primary btn-block mt-3">Subir</button>
+              <button type="submit" class="btn btn-primary btn-block mt-3">Listo</button>
             </form>
           </div>
         </div>
@@ -50,20 +67,26 @@
   </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Ingredientes</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <template id="template-ingredientAdd">
-        <div class="card">
+        <div class="card mt-2">
           <div class="card-body">
-            <h5>Titlle</h5>
-            <button class="btn btn-success">+</button>
+            <div class="row">
+              <div class="col-10">
+                <h5>Titlle</h5>
+              </div>
+              <div class="col-2">
+                <button class="btn btn-success">+</button>
+              </div>
+            </div>
           </div>
         </div>
       </template>
@@ -71,8 +94,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Listo</button>
       </div>
     </div>
   </div>

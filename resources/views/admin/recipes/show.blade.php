@@ -15,10 +15,21 @@
             <h1 class="display-3">{{$recipe->name}}</h1>
             <h6 class="card-subtitle mb-2 text-muted">{{$recipe->quantity}}</h6>
 
-            <p class="card-text"><small class="text-muted">{{$recipe->detail}} ({{$recipe->vegan}})</small> </p>
+            <p class="card-text"><small class="text-muted">{{$recipe->detail}}</small> </p>
           </div>
         </div>
       </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col px-1 px-md-2">
+        <div class="card shadow">
+          <div class="card-body">
+            <h1 class="display-4">Valor: ${{$recipe->min_value() * $recipe->factor}}</h1>
+            <p class="card-text"><small class="text-muted">${{$recipe->min_value()}} x {{$recipe->factor}}</small> </p>
+          </div>
+        </div>
+      </div>
+
     </div>
     <div class="row mt-4">
       <div class="col px-1 px-md-2">
@@ -27,9 +38,11 @@
             Ingredientes
           </div>
           <ul class="list-group list-group-flush">
-            @foreach ($recipe->ingredients as $ingredient)
-              <li class="list-group-item">{{$ingredient->name}}</li>
-            @endforeach
+            @forelse ($recipe->ingredients as $ingredient)
+              <li class="list-group-item">{{$ingredient->name}} ({{$ingredient->pivot->quantity}} {{$ingredient->unit}})</li>
+            @empty
+              <li class="list-group-item"><i>Aun no has agregado ingredientes</i></li>
+            @endforelse
           </ul>
         </div>
       </div>

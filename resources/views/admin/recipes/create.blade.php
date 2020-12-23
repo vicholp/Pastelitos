@@ -22,13 +22,13 @@
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Link</label>
-            <input type="text" name="recipe_link" class="form-control" placeholder="tupoto.cl" required>
+            <input type="text" name="recipe_link" class="form-control" placeholder="tupoto.cl">
             <small class="form-text text-muted">De donde la sacaste?</small>
           </div>
           <div class="form-group">
             <label>Es vegana?</label>
             <select class="custom-select" name="recipe_vegan" required>
-              <option value="vegan">Vegana</option>
+              <option value="vegan" selected>Vegana</option>
               <option value="vegetarian">Vegetariana</option>
               <option value="carnivorous">:(</option>
             </select>
@@ -40,7 +40,7 @@
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Detalles</label>
-            <input type="text" name="recipe_details" class="form-control" placeholder="jiji" required>
+            <input type="text" name="recipe_details" class="form-control" placeholder="jiji" >
             <small class="form-text text-muted">Alguna otra cosa?</small>
           </div>
           <button class="btn bg-pink btn-block" type="submit">Crear</button>

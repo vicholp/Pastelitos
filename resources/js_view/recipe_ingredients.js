@@ -1,14 +1,19 @@
 function search(){
   let arg = document.querySelector("#searchIngredient").value.split(" ").filter(String);
   let table = document.querySelector("#div-ingredientsAdd")
-  fetch(`/admin/ingredients/query/${arg}`, {method: 'GET'})
+  if (arg === ""){
+    return false;
+  }
+  fetch(`/admin/api/ingredients/query/${arg}`, {method: 'GET'})
     .then( function(response) {
         if (response.status !== 200) return false;
         response.json().then(function(data) {
           table.textContent = ""
           console.log(data)
           for (ingredient of data){
-            console.log(ingredient)
+            if (recipe_ingredients.includes(ingredient.id)){
+              continue;
+            }
             let t = document.querySelector("#template-ingredientAdd").cloneNode(true).content;
 
             t.querySelector("h5").textContent = `${ingredient.name}`
@@ -28,25 +33,43 @@ function search(){
 
 
 function add(arg){
-  console.log('add' +  ingredients[arg].name)
-  var ingredient = ingredients[arg]
-  var table = document.querySelector("#div-ingredients")
-  var t = document.querySelector("#template-ingredientAdded").cloneNode(true).content;
 
-  t.querySelector("label").textContent = `${ingredient.name}`
-  t.querySelector("input").name = `${ingredient.id}`
-  t.querySelector("span").textContent = `${ingredient.unit}`
-  t.querySelector("button").setAttribute('onclick',`removeIngredient(${ingredients.indexOf(ingredient)})`);
+  fetch(`/admin/api/ingredients/${arg}`, {method: 'GET'})
+    .then( function(response) {
+        if (response.status !== 200) return false;
+        response.json().then(function(data) {
+          let ingredient = data
 
-  table.appendChild(t);
-  $('#exampleModal').modal('hide')
+          if (recipe_ingredients.includes(data.id)){
+            return false;
+          }
+
+          let table = document.querySelector("#div-ingredients")
+          let t = document.querySelector("#template-ingredientAdded").cloneNode(true).content;
+
+          t.querySelector(".div-ingredient").setAttribute('data-ingredient', ingredient.id)
+          t.querySelector("label").textContent = `${ingredient.name}`
+          t.querySelector("input").name = `${ingredient.id}`
+          t.querySelector("span").textContent = `${ingredient.unit}`
+          t.querySelector("button").setAttribute('onclick',`removeIngredient(${ingredient.id})`);
+
+          table.appendChild(t);
+        });
+      }
+    )
+    .catch(function(err) {
+      return false;
+
+    });
+
 }
 
 function removeIngredient(arg){
-  console.log('remove' + ingredients[arg].name)
+  console.log('remove' + arg)
 
+  let e = document.querySelector(`[data-ingredient="${arg}"]`)
+  e.parentNode.removeChild(e);
 }
-
 
 function listSearch(needles, haystacks) {
   return haystacks.filter((h) => {

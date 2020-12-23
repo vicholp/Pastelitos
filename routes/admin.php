@@ -21,14 +21,29 @@ use App\Models\Ingredient;
 Route::get('/', [AdminController::class, 'main']);
 
 Route::get('recipe/{recipe}/ingredients', [RecipeController::class, 'editIngredients']);
-
 Route::post('recipe/{recipe}/ingredients', [RecipeController::class, 'updateIngredients']);
 
-Route::get('ingredients/query/{query}', function ($query) {
-  return Ingredient::usingSearchString($query)->get();
-});
+
+
 
 Route::resource('recipes', RecipeController::class);
 Route::resource('ingredients', IngredientController::class);
 
+
+Route::get('api/ingredients', function () {
+  return Ingredient::get();
+});
+
+Route::get('api/ingredients/query/{query}', function ($query) {
+  return Ingredient::usingSearchString($query)->get();
+});
+Route::get('api/ingredients/{ingredient}', function (Ingredient $ingredient) {
+  return $ingredient;
+});
+Route::get('api/recipes', function () {
+  return Recipe::get();
+});
+Route::get('api/recipes/{recipe}/ingredients', function (Recipe $recipe) {
+  return $recipe->ingredients;
+});
 

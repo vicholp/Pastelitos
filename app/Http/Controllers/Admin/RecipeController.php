@@ -101,9 +101,10 @@ class RecipeController extends Controller
 
       return view('admin.recipes.ingredients', ['user' => 'Josefita', 'recipe' => $recipe, 'ingredients' => $ingredients]);
     }
+
     public function updateIngredients(Recipe $recipe, Request $request){
+        $recipe->ingredients()->detach();
         foreach ($request->except('_token') as $key => $value) {
-            echo $key . " __ " . $value . "<br>";
             $recipe->ingredients()->attach($key, ['quantity' => $value]);
         }
         return view('admin.recipes.show', ['user' => 'Josefita', 'recipe' => $recipe]);

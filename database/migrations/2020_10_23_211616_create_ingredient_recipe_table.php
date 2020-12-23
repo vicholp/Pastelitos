@@ -18,7 +18,7 @@ class CreateIngredientRecipeTable extends Migration
             $table->timestamps();
             $table->foreignId('ingredient_id')->constrained();
             $table->foreignId('recipe_id')->constrained();
-            $table->integer('quantity')->default(1);
+            $table->float('quantity')->default(1);
 
 
         });

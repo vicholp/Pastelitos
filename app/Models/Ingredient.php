@@ -12,6 +12,8 @@ class Ingredient extends Model
     use HasFactory;
     use SearchString;
 
+     protected $fillable = ['name', 'unit', 'unit_price', 'type'];
+
     public function recipes()
     {
         return $this->belongsToMany('App\Models\Recipe')->withPivot('quantity');

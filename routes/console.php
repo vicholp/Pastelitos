@@ -3,6 +3,9 @@
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 
+use App\Models\Ingredient;
+use App\Models\Recipe;
+
 /*
 |--------------------------------------------------------------------------
 | Console Routes
@@ -17,3 +20,36 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+
+Artisan::command('ingredientes', function(){
+    Ingredient::create([
+      'name' => 'Cacao',
+      'unit' => 'gr',
+      'unit_price' => '2500',
+      'type' => 'consumable'
+    ]);
+    Ingredient::create([
+      'name' => 'Harina',
+      'unit' => 'gr',
+      'unit_price' => '850',
+      'type' => 'consumable'
+    ]);
+    Ingredient::create([
+      'name' => 'Azucar',
+      'unit' => 'gr',
+      'unit_price' => '800',
+      'type' => 'consumable'
+    ]);
+    Ingredient::create([
+      'name' => 'Aceite',
+      'unit' => 'gr',
+      'unit_price' => '1700',
+      'type' => 'consumable'
+    ]);
+    Ingredient::create([
+      'name' => 'Bicarbonato',
+      'unit' => 'gr',
+      'unit_price' => '400',
+      'type' => 'consumable'
+    ]);
+});

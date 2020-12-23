@@ -1,16 +1,15 @@
 @extends('admin.template.main')
 
-@section('title', 'Peculiar Bakery')
+@section('title', 'Mis recetas')
 
 @section('content')
 <div class="container-fluid mt-4 px-0 px-md-2">
   <div class="container-xl ">
     <div class="row">
       <div class="col">
-        <h1 class="display-2 cookie mb-3 text-pink">Mis recetas</h1>
         <table class="table table-hover">
           <tbody>
-            @foreach ($recipes as $recipe)
+            @forelse ($recipes as $recipe)
               <tr>
                 <td class="align-middle">{{$recipe->name}}</td>
                 <td>
@@ -19,7 +18,13 @@
                   </div>
                 </td>
               </tr>
-            @endforeach
+            @empty
+              <div class="card shadow">
+                <div class="card-body">
+                  No has agregado ninguna receta
+                </div>
+              </div>
+            @endforelse
           </tbody>
         </table>
       </div>
