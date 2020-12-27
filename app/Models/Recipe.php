@@ -13,4 +13,11 @@ class Recipe extends Model
     {
         return $this->belongsToMany('App\Models\Ingredient')->withPivot('quantity');
     }
+    public function min_value(){
+        $price = 0;
+        foreach ($this->ingredients as $ingredient){
+          $price += $ingredient->unit_price*$ingredient->pivot->quantity;
+        }
+        return $price;
+    }
 }

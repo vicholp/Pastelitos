@@ -17,12 +17,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            RecipeSeeder::class
-        ]);
-        DB::table('users')->insert([
-            'name' => Str::random(10),
-            'email' => 'testing@gmail.com',
-            'password' => Hash::make('password'),
+            RecipeSeeder::class,
+            UserSeeder::class
+
         ]);
 
     }

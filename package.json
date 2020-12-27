@@ -14,6 +14,7 @@
         "@inertiajs/inertia-vue": "^0.2.0",
         "@tailwindcss/ui": "^0.6.0",
         "axios": "^0.19",
+        "browser-sync-webpack-plugin": "^2.0.1",
         "cross-env": "^7.0",
         "laravel-jetstream": "^0.0.3",
         "laravel-mix": "^5.0.1",
@@ -24,5 +25,8 @@
         "tailwindcss": "^1.8.0",
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10"
+    },
+    "dependencies": {
+        "browser-sync": "^2.26.13"
     }
 }

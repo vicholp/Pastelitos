@@ -11,9 +11,16 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        require('postcss-import'),
-        require('tailwindcss'),
-    ])
-    .webpackConfig(require('./webpack.config'));
+mix.scripts([
+            ],
+    'public/js/all.js');
+
+mix.scripts('resources/js_view/recipe_ingredients.js', 'public/js/recipe_ingredients.js').version();
+
+mix.styles([
+      'resources/css/main.css',
+      'resources/css/rfs.css',
+      'resources/css/mdi.css'],
+    'public/css/app.css');
+
+mix.browserSync('localhost:80');

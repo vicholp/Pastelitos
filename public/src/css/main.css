@@ -1,3 +1,6 @@
+@font-face { font-family: Pacifico; src: url('/src/fonts/Pacifico.ttf'); }
+@font-face { font-family: Cookie; src: url('/src/fonts/Cookie-Regular.ttf'); }
+
 nav {
   min-height: 80px;
   width: 100vw;
@@ -61,6 +64,11 @@ nav {
 }
 .bg-blue {
   background-color: #DEEEFF;
+}
+
+
+.text-pink{
+    color: #FEBCC8;
 }
 
 /* Responsive Fonts */
