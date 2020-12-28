@@ -1,24 +1,20 @@
-version: "3.9"
+version: '3.9'
 services:
   httpd:
-    build: "./provision/httpd"
+    build: ./provision/httpd
     ports:
-      - "80:80"
+      - '80:80'
     volumes:
-      - ".:/var/www/html"
+      - .:/var/www/html
 
-  PerconaDB:
-    image: "percona:5.7-centos"
+  db:
+    container_name: db
+    image: percona:5.7-centos
     ports:
-      - "3306:3306"
+      - '3306:3306'
     environment:
-      MYSQL_ROOT_PASSWORD: "admin"
-      MYSQL_DATABASE: "default_db"
-      MYSQL_USER: "username"
-      MYSQL_PASSWORD: "password"
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: default_db
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
 
-  phpMyAdmin:
-    image: phpmyadmin
-    restart: always
-    ports:
-      - 8080:8080
