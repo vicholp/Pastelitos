@@ -32,6 +32,11 @@
             <input type="text" name="ingredient_unitPrice" class="form-control" placeholder="tupoto.cl" required>
             <small class="form-text text-muted">Cuando vale cada unidad?</small>
           </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Cantidad unitaria</label>
+            <input type="number" name="ingredient_unitQuantity" class="form-control" placeholder="1000" required>
+            <small class="form-text text-muted">Cuanto viene en cada unidad?</small>
+          </div>
 
           <div class="form-group">
             <label for="exampleInputPassword1">Cuanto te queda?</label>

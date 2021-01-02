@@ -97,9 +97,22 @@ class RecipeController extends Controller
     }
 
     public function editIngredients(Recipe $recipe){
-      $ingredients = Ingredient::orderBy('id', 'asc')->get();
+        $ingredients = Ingredient::orderBy('id', 'asc')->get();
+        $list_ingredients = [];
 
-      return view('admin.recipes.ingredients', ['user' => 'Josefita', 'recipe' => $recipe, 'ingredients' => $ingredients]);
+        foreach ($recipe->ingredients as $ingredient) {
+            array_push($list_ingredients, $ingredient->id);
+        }
+
+        return view(
+            'admin.recipes.ingredients',
+            [
+                'user' => 'Josefita',
+                'recipe' => $recipe,
+                'ingredients' => $ingredients,
+                'list_ingredients' => $list_ingredients
+            ]
+        );
     }
 
     public function updateIngredients(Recipe $recipe, Request $request){

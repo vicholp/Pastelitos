@@ -5,13 +5,8 @@
 
 <script type="text/javascript" src="{{mix("js/recipe_ingredients.js")}}"></script>
 <script type="text/javascript">
-  const recipe_id = {{$recipe->id}}
-  let recipe_ingredients =[
-    @foreach ($recipe->ingredients as $ingredient)
-      {{$ingredient->id}},
-    @endforeach
-  ]
-
+  const recipe_id = {{$recipe->id}};
+  var recipe_ingredients = [{{implode(', ', $list_ingredients)}}]
 </script>
 @endsection
 

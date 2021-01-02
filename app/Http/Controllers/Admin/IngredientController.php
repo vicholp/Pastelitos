@@ -42,6 +42,7 @@ class IngredientController extends Controller
         $ingredient->type = $request->ingredient_type;
         $ingredient->unit = $request->ingredient_unit;
         $ingredient->unit_price = $request->ingredient_unitPrice;
+        $ingredient->unit_quantity = $request->ingredient_unitQuantity;
         $ingredient->remaining_quantity = $request->ingredient_quantity;
         $ingredient->save();
         $ingredients = Ingredient::get();

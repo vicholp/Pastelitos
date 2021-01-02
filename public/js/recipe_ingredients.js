@@ -10,7 +10,7 @@ function search(){
         response.json().then(function(data) {
           table.textContent = ""
           console.log(data)
-          for (ingredient of data){
+          for (let ingredient of data){
             if (recipe_ingredients.includes(ingredient.id)){
               continue;
             }
