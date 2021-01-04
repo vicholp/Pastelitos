@@ -26,7 +26,7 @@ class IngredientController extends Controller
      */
     public function create()
     {
-        return view('admin.ingredients.create', ['user' => 'Josefita']);
+        return view('admin.ingredients.edit', ['user' => 'Josefita']);
     }
 
     /**
@@ -38,15 +38,17 @@ class IngredientController extends Controller
     public function store(Request $request)
     {
         $ingredient = new Ingredient;
-        $ingredient->name = $request->ingredient_name;
-        $ingredient->type = $request->ingredient_type;
-        $ingredient->unit = $request->ingredient_unit;
-        $ingredient->unit_price = $request->ingredient_unitPrice;
-        $ingredient->unit_quantity = $request->ingredient_unitQuantity;
-        $ingredient->remaining_quantity = $request->ingredient_quantity;
+        $ingredient->name = $request->name;
+        $ingredient->type = $request->type;
+        $ingredient->unit = $request->unit;
+        $ingredient->unit_price = $request->unit_price;
+        $ingredient->unit_quantity = $request->unit_quantity;
+        $ingredient->remaining_quantity = $request->remaining_quantity;
+        $ingredient->remaining_quantity_alert = $request->remaining_quantity_alert;
+
         $ingredient->save();
-        $ingredients = Ingredient::get();
-        return view('admin.ingredients.index', ['user' => 'Josefita', 'ingredients' => $ingredients]);
+
+        return redirect()->route('ingredients.show',  [$ingredient]);
     }
 
     /**
@@ -68,7 +70,7 @@ class IngredientController extends Controller
      */
     public function edit(Ingredient $ingredient)
     {
-        //
+        return view('admin.ingredients.edit', ['user' => 'Josefita', 'ingredient' => $ingredient]);
     }
 
     /**
@@ -80,7 +82,16 @@ class IngredientController extends Controller
      */
     public function update(Request $request, Ingredient $ingredient)
     {
-        //
+        $ingredient->name = $request->name;
+        $ingredient->type = $request->type;
+        $ingredient->unit = $request->unit;
+        $ingredient->unit_price = $request->unit_price;
+        $ingredient->unit_quantity = $request->unit_quantity;
+        $ingredient->remaining_quantity = $request->remaining_quantity;
+        $ingredient->remaining_quantity_alert = $request->remaining_quantity_alert;
+        $ingredient->save();
+
+        return redirect()->route('ingredients.show', [$ingredient]);
     }
 
     /**

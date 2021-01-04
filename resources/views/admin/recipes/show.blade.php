@@ -8,7 +8,7 @@
     <div class="row">
       <div class="col px-1 px-md-2">
         <a href="" class="btn btn-warning mdi mdi-pot-steam">Cocinar</a>
-        <a href="" class="btn btn-outline-primary mdi mdi-pencil">Editar</a>
+        <a href="/admin/recipes/{{$recipe->id}}/edit" class="btn btn-outline-primary mdi mdi-pencil">Editar</a>
         <a href="/admin/recipe/{{$recipe->id}}/ingredients" class="btn btn-outline-primary mdi mdi-pencil">Ingredientes</a>
         <div class="card shadow mt-4">
           <div class="card-body">

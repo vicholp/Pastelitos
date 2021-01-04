@@ -7,7 +7,7 @@
   <div class="container-xl">
     <div class="row">
       <div class="col px-1 px-md-2">
-        <a href="" class="btn btn-outline-secondary mdi mdi-pencil">Editar</a>
+        <a href="/admin/ingredients/{{$ingredient->id}}/edit" class="btn btn-outline-secondary mdi mdi-pencil">Editar</a>
       </div>
     </div>
     <div class="row mt-3">

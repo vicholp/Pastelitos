@@ -28,7 +28,7 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        return view('admin.recipes.create', ['user' => 'Josefita']);
+        return view('admin.recipes.edit', ['user' => 'Josefita']);
     }
 
     /**
@@ -50,7 +50,7 @@ class RecipeController extends Controller
         $recipe->save();
 
 
-        return redirect()->route('recipes.index');
+        return redirect()->route('recipes.show',  [$recipe]);
     }
 
     /**
@@ -72,7 +72,7 @@ class RecipeController extends Controller
      */
     public function edit(Recipe $recipe)
     {
-        //
+        return view('admin.ingredients.edit', ['user' => 'Josefita', 'recipe' => $recipe]);
     }
 
     /**
@@ -84,7 +84,17 @@ class RecipeController extends Controller
      */
     public function update(Request $request, Recipe $recipe)
     {
-        //
+        $recipe->name = $request->name;
+        $recipe->quantity = $request->quantity;
+        $recipe->link = $request->link;
+        $recipe->vegan = $request->vegan == 'on' ? 1 : 0;
+        $recipe->factor = $request->factor;
+        $recipe->detail = $request->details;
+        $recipe->estimated_time = $request->estimated_time;
+        $recipe->save();
+
+
+        return redirect()->route('recipes.show',  [$recipe]);
     }
 
     /**
