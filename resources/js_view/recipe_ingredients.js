@@ -44,6 +44,7 @@ function add(arg){
             return false;
           }
 
+          recipe_ingredients.push(data.id)
           let table = document.querySelector("#div-ingredients")
           let t = document.querySelector("#template-ingredientAdded").cloneNode(true).content;
 

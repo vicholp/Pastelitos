@@ -45,7 +45,13 @@
             Recetas
           </div>
           <ul class="list-group list-group-flush">
-
+            @forelse ($ingredient->recipes as $recipe)
+              <a href="/admin/recipes/{{$recipe->id}}" style="color: inherit; text-decoration: inherit;">
+                <li class="list-group-item">{{$recipe->name}}</li>
+              </a>
+            @empty
+              <li class="list-group-item"><i>Este ingrediente no tiene ninguna receta</i></li>
+            @endforelse
           </ul>
         </div>
       </div>

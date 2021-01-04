@@ -15,8 +15,8 @@ class Recipe extends Model
     }
     public function min_value(){
         $price = 0;
-        foreach ($this->ingredients as $ingredient){
-          $price += $ingredient->unit_price*$ingredient->pivot->quantity;
+        foreach ($this->ingredients as $ingredient) {
+          $price += $ingredient->unit_price*($ingredient->pivot->quantity/$ingredient->unit_quantity);
         }
         return $price;
     }

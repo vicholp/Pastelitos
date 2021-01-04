@@ -40,15 +40,17 @@ class RecipeController extends Controller
     public function store(Request $request)
     {
         $recipe = new Recipe;
-        $recipe->name = $request->recipe_name;
-        $recipe->quantity = $request->recipe_quantity;
-        $recipe->link = $request->recipe_link;
-        $recipe->vegan = $request->recipe_vegan;
-        $recipe->factor = $request->recipe_factor;
-        $recipe->detail = $request->recipe_details;
+        $recipe->name = $request->name;
+        $recipe->quantity = $request->quantity;
+        $recipe->link = $request->link;
+        $recipe->vegan = $request->vegan == 'on' ? 1 : 0;
+        $recipe->factor = $request->factor;
+        $recipe->detail = $request->details;
+        $recipe->estimated_time = $request->estimated_time;
         $recipe->save();
-        $recipes = Recipe::get();
-        return view('admin.recipes.index', ['user' => 'Josefita', 'recipes' => $recipes]);
+
+
+        return redirect()->route('recipes.index');
     }
 
     /**

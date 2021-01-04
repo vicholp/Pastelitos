@@ -13,9 +13,15 @@
         <div class="card shadow mt-4">
           <div class="card-body">
             <h1 class="display-3">{{$recipe->name}}</h1>
-            <h6 class="card-subtitle mb-2 text-muted">{{$recipe->quantity}}</h6>
-
-            <p class="card-text"><small class="text-muted">{{$recipe->detail}}</small> </p>
+            <h6 class="card-subtitle mb-2 text-muted">
+              {{$recipe->quantity}}
+              @isset ($recipe->estimated_time)
+                ~ {{$recipe->estimated_time}} minutos
+              @endisset
+            </h6>
+            <p class="card-text">
+              <small class="text-muted"> {{$recipe->detail}} </small>
+            </p>
           </div>
         </div>
       </div>
@@ -39,7 +45,9 @@
           </div>
           <ul class="list-group list-group-flush">
             @forelse ($recipe->ingredients as $ingredient)
-              <li class="list-group-item">{{$ingredient->name}} ({{$ingredient->pivot->quantity}} {{$ingredient->unit}})</li>
+              <a href="/admin/ingredients/{{$ingredient->id}}" style="color: inherit; text-decoration: inherit;">
+                <li class="list-group-item">{{$ingredient->name}} ({{$ingredient->pivot->quantity}} {{$ingredient->unit}})</li>
+              </a>
             @empty
               <li class="list-group-item"><i>Aun no has agregado ingredientes</i></li>
             @endforelse

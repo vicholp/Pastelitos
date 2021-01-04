@@ -13,16 +13,24 @@
 @section('content')
 <div class="container-fluid mt-4 px-0 px-md-2">
   <div class="container-xl ">
-    <div class="row">
-      <div class="col">
-        <h1 class="display-4 pacifico mb-3 text-pink">{{$recipe->name}}</h1>
-        <div class="card">
+    <div class="row mt-3">
+      <div class="col px-1 px-md-2">
+         <h1 class="display-4 pacifico mb-3 text-pink">{{$recipe->name}}</h1>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col px-1 px-md-2">
+        <div class="card shadow">
           <div class="card-body">
             <input type="search" class="form-control" id="searchIngredient" placeholder="Busca un ingrediente">
             <button class="btn btn-outline-primary btn-block mt-3" onclick="search()">Buscar</button>
           </div>
         </div>
-        <div class="card mt-3">
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col px-1 px-md-2">
+        <div class="card shadow">
           <div class="card-body">
             <form action="/admin/recipe/{{$recipe->id}}/ingredients" method="POST">
               @csrf
@@ -56,7 +64,6 @@
             </form>
           </div>
         </div>
-
       </div>
     </div>
   </div>

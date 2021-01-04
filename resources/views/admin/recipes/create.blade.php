@@ -10,40 +10,53 @@
         <form action="/admin/recipes" method="POST">
           @csrf
           <h1 class="display-3 pacifico text-pink mb-3 px-4">Nueva receta</h1>
-          <div class="form-group">
-            <label>Nombre de la receta</label>
-            <input type="text" name="recipe_name" class="form-control" placeholder="Torta de chocolate con chocolate" required>
-            <small id="emailHelp" class="form-text text-muted" >Nombre para identificarla</small>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">General</h5>
+              <div class="form-group">
+                <label>Nombre de la receta</label>
+                <input type="text" name="name" class="form-control" placeholder="Torta de chocolate con chocolate" required>
+              </div>
+              <div class="form-group">
+                <label>Cantidad</label>
+                <input type="text" name="quantity" class="form-control" placeholder="De 18 cm" required>
+                <small class="form-text text-muted">Cuanto haces?</small>
+              </div>
+              <div class="form-group">
+                <label>Factor dificultad/tiempo</label>
+                <input type="number" step="0.1" name="factor" class="form-control" placeholder="1.5" required>
+                <small class="form-text text-muted">Cuan dificil es</small>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Cantidad</label>
-            <input type="text" name="recipe_quantity"class="form-control" placeholder="De 18 cm" required>
-            <small class="form-text text-muted">Cuanto haces?</small>
+
+          <div class="card mt-3">
+            <div class="card-body">
+              <div class="form-check">
+                <input type="checkbox" name="vegan" class="form-check-input" checked>
+                <label class="form-check-label">Vegana</label>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Link</label>
-            <input type="text" name="recipe_link" class="form-control" placeholder="tupoto.cl">
-            <small class="form-text text-muted">De donde la sacaste?</small>
+          <div class="card mt-3">
+            <div class="card-body">
+              <h5 class="card-title">Detalles (opcional)</h5>
+              <div class="form-group">
+                <label>Link</label>
+                <input type="text" name="link" class="form-control" placeholder="tupoto.cl">
+              </div>
+              <div class="form-group">
+                <label>Detalles</label>
+                <input type="text" name="details" class="form-control" placeholder="jiji" >
+                <small class="form-text text-muted">Alguna otra cosa?</small>
+              </div>
+              <div class="form-group">
+                <label>Tiempo estimado (minutos)</label>
+                <input type="number" name="estimated_time" class="form-control" placeholder="60">
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Es vegana?</label>
-            <select class="custom-select" name="recipe_vegan" required>
-              <option value="vegan" selected>Vegana</option>
-              <option value="vegetarian">Vegetariana</option>
-              <option value="carnivorous">:(</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Factor</label>
-            <input type="number" step="0.1" name="recipe_factor" class="form-control" placeholder="1.5" required>
-            <small class="form-text text-muted">Cuan dificil es</small>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Detalles</label>
-            <input type="text" name="recipe_details" class="form-control" placeholder="jiji" >
-            <small class="form-text text-muted">Alguna otra cosa?</small>
-          </div>
-          <button class="btn bg-pink btn-block" type="submit">Crear</button>
+          <button class="btn bg-pink btn-block mt-3" type="submit">Crear</button>
         </form>
       </div>
     </div>
@@ -53,4 +66,4 @@
 @endsection
 
 @section('importFoot')
-<script defer type="text/javascript" src="{{asset('js/recipe_create.js')}}"></script>
+<script defer type="text/javascript" src="{{asset('js/create.js')}}"></script>
