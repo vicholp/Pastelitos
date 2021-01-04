@@ -72,7 +72,7 @@ class RecipeController extends Controller
      */
     public function edit(Recipe $recipe)
     {
-        return view('admin.ingredients.edit', ['user' => 'Josefita', 'recipe' => $recipe]);
+        return view('admin.recipes.edit', ['user' => 'Josefita', 'recipe' => $recipe]);
     }
 
     /**
