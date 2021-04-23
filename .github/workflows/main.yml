@@ -1,0 +1,59 @@
+name: Deploy
+
+on:
+  push:
+    branches: [integration, main]
+  workflow_dispatch:
+
+jobs:
+  deploy-main:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: new deployment
+        uses: niklasmerz/github-deployment-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: -o vicholp -r Pastelitos -c main -e main
+      - name: download and optimize
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          use_insecure_cipher: true
+          script: |
+            (cd spaces/pastelitos/main;
+            php artisan down --message="Actualizando..." --retry=60;
+            git pull;
+            php artisan config:cache; php artisan route:cache; php artisan view:cache)
+      - name: deployment failure
+        if: ${{ failure() }}
+        uses: niklasmerz/github-deployment-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: -o vicholp -r Pastelitos -s failure -u https://pastelitos.vicho.dev -f
+      - name: artisan up
+        if: ${{ success() }}
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          use_insecure_cipher: true
+          script: |
+            (cd spaces/pastelitos/main;
+            php artisan up)
+      - name: deployment success
+        if: ${{ success() }}
+        uses: niklasmerz/github-deployment-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: -o vicholp -r Pastelitos -s success -u https://pastelitos.vicho.dev -f
+
+
