@@ -16,15 +16,14 @@ class CreateIngredientsTable extends Migration
         Schema::create('ingredients', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
-            $table->string('unit');
-            $table->integer('unit_price')->default(1000);
-            $table->string('image')->nullable();
+            $table->text('name');
+            $table->text('unit');
+            $table->integer('unit_price');
+            $table->integer('unit_quantity');
+            $table->text('image')->nullable();
             $table->integer('remaining_quantity')->default(0);
+            $table->integer('remaining_quantity_alert')->default(1);
             $table->set('type', ['intangible', 'consumable', 'package'])->default('consumable');
-
-
-
         });
     }
 

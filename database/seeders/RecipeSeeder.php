@@ -15,11 +15,6 @@ class RecipeSeeder extends Seeder
      */
     public function run()
     {
-        Recipe::factory()
-            ->count(10)
-            ->hasAttached(
-                Ingredient::factory()->count(5),
-                ['quantity' => 2])
-            ->create();
+
     }
 }

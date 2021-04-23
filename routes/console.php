@@ -3,6 +3,9 @@
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 
+use App\Models\Ingredient;
+use App\Models\Recipe;
+
 /*
 |--------------------------------------------------------------------------
 | Console Routes
@@ -17,3 +20,7 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+
+Artisan::command('ingredientes', function(){
+
+});
