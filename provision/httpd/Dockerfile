@@ -13,11 +13,10 @@ RUN yum-config-manager --enable remi-php73
 RUN yum -y update
 
 RUN yum -y install httpd
-RUN yum -y install php php-pdo php-soap php-xml php-pdo_mysql
+RUN yum -y install php php-pdo php-mbstring php-soap php-xml php-pdo_mysql
 RUN yum -y install nodejs
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
 
 COPY httpd.conf /etc/httpd/conf/httpd.conf
 
