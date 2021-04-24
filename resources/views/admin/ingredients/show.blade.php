@@ -21,7 +21,7 @@
               <div class="card-body">
                 <h5 class="card-title">{{$ingredient->name}}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{$ingredient->type}}</h6>
-                <p class="card-text">{{$ingredient->unit_quantity}}[{{$ingredient->unit}}] por paquete</p>
+                <p class="card-text">${{$ingredient->unit_price}} por paquete de {{$ingredient->unit_quantity}} [{{$ingredient->unit}}]</p>
               </div>
             </div>
           </div>

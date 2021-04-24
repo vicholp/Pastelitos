@@ -12,11 +12,9 @@
 
   <!-- Imports -->
 
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.min.js"
-      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-      crossorigin="anonymous">
-    </script>
+    <link rel="stylesheet" href="{{mix('css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{mix('css/main.css')}}">
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
     @yield('importHead')
 
@@ -51,12 +49,9 @@
 
   <!-- Imports -->
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.materialdesignicons.com/5.1.45/css/materialdesignicons.min.css" >
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+    <script src="{{mix('/js/manifest.js')}}"></script>
+    <script src="{{mix('/js/vendor.js')}}"></script>
+    <script src="{{mix('/js/main.js')}}"></script>
 
     @yield('importFoot')
 
