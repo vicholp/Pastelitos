@@ -15,6 +15,7 @@ RUN yum -y update
 RUN yum -y install httpd
 RUN yum -y install php php-pdo php-mbstring php-soap php-xml php-pdo_mysql
 RUN yum -y install nodejs
+RUN yum -y install git
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
