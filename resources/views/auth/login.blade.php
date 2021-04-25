@@ -12,37 +12,38 @@
 
 <body style="background-color: rgb(242, 242, 242);">
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="card mb-3 mt-4 col-6">
-     <div class="card-body">
-       <h5 class="card-title">Acceder</h5>
-       <p class="card-text">Solo los administradores pueden acceder.</p>
-     </div>
-    </div>
-  </div>
-
-
-  <div class="row justify-content-center">
-    <div class="card  mb-3">
-      <div class="card-body">
-
-        <form action='login' method='POST'>
-          @csrf
-          <div class="form-group">
-            <label for="email">Username</label>
-            <input type="email" class="form-control" name="email" id="username" placeholder="Nombre de usuario" required>
-
-          </div>
-          <div class="form-group">
-            <label for="pass">Password</label>
-            <input type="password" class="form-control" name="password" id="pass" placeholder="Contraseña">
-          </div>
-
-          <button type="submit" class="btn btn-primary">Acceder</button>
-        </form>
+  <div class="row mb-3 mt-5 justify-content-center">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body text-center">
+          <h5 class="card-title">Movimiento Pleno</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Acceder</h6>
+        </div>
       </div>
     </div>
   </div>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body">
+          <form action='login' method='POST'>
+            @csrf
+            <div class="mb-3">
+              <label for="input-username" class="form-label">Nombre de usuario</label>
+              <input type="email" class="form-control" name="email" id="username" placeholder="Nombre de usuario" required>
+              <div id="emailHelp" class="form-text">ayuaaa</div>
+            </div>
+            <div class="mb-3">
+              <label for="input-password" class="form-label">Password</label>
+               <input type="password" class="form-control" name="password" id="pass" placeholder="Contraseña">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <!-- Imports -->

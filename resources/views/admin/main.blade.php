@@ -3,30 +3,23 @@
 @section('title', 'Home')
 
 @section('content')
-<div class="container mt-4">
-  <div class="row">
+<div class="container-xl ">
+  <div class="row mt-3 gy-3">
     <div class="col-12">
       <div class="card shadow">
         <img src="src/5.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <a href="admin/recipes" class="btn btn-primary btn-block">Recetas</a>
+        <div class="card-img-overlay">
+          <h5 class="card-title text-center">Recetas</h5>
+          <a href="admin/recipes" class="stretched-link"></a>
         </div>
       </div>
     </div>
     <div class="col-12">
       <div class="card shadow">
         <img src="src/4.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <a href="admin/ingredients" class="btn btn-primary btn-block">Ingredientes</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col">
-      <div class="card shadow">
-        <div class="card-body">
-          <a href="admin/ingredients" class="btn btn-secondary btn-block">Otros</a>
+        <div class="card-img-overlay">
+          <h5 class="card-title text-center">Ingredientes</h5>
+          <a href="admin/ingredients" class="stretched-link"></a>
         </div>
       </div>
     </div>
