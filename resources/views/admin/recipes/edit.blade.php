@@ -1,6 +1,6 @@
 @extends('admin.template.main')
 
-@section('title', 'Joink')
+@section('title', 'Recetas')
 
 @section('content')
 
@@ -27,7 +27,7 @@
     @csrf
     <div class="row mt-3">
       <div class="col">
-        <div class="card">
+        <div class="card shadow">
           <div class="card-body">
             <h5 class="card-title my-2 mb-4 text-center">General</h5>
             <div class="form-floating mb-3">
@@ -50,7 +50,7 @@
     </div>
     <div class="row mt-3">
       <div class="col">
-        <div class="card">
+        <div class="card shadow">
           <div class="card-body">
             <div class="form-check form-switch">
               <input type="checkbox" name="vegan" class="form-check-input" checked disabled>
@@ -66,7 +66,7 @@
     </div>
     <div class="row mt-3">
       <div class="col">
-        <div class="card">
+        <div class="card shadow">
           <div class="card-body">
             <h5 class="card-title my-2 mb-4 text-center">Detalles (opcional)</h5>
 
