@@ -11,16 +11,13 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.scripts([
-            ],
-    'public/js/all.js');
+mix.js('resources/js/main.js', 'public/js').extract();;
 
-mix.scripts('resources/js_view/recipe_ingredients.js', 'public/js/recipe_ingredients.js').version();
+mix.js('resources/js_view/recipe_ingredients.js', 'public/js/').extract();
 
-mix.styles([
-      'resources/css/main.css',
-      'resources/css/rfs.css',
-      'resources/css/mdi.css'],
-    'public/css/app.css');
+mix.sass('resources/sass/bootstrap.scss', 'public/css')
+    .sass('resources/sass/main.scss', 'public/css');
 
-mix.browserSync('localhost:80');
+if (mix.inProduction()) {
+    mix.version();
+}

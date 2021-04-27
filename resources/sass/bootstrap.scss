@@ -1,0 +1,53 @@
+$body-bg:                     #F9FAFB;
+
+$body-color:                  #000000DE;
+
+$enable-shadows:              true;
+
+$primary:                     #66D8E0;
+
+$transition-collapse:         height .30s ease-in-out;
+
+$font-size-root:              0.875rem;
+
+$text-muted:                  #00000099;
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+$box-shadow-sm:               0 .125rem .25rem rgba($black, .075);
+$box-shadow:                  0 .25rem .5rem rgba($black, .1);
+$box-shadow-lg:               0 1rem 3rem rgba($black, .175);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "shadow": (
+      property: box-shadow,
+      class: shadow,
+      values: map-merge(
+        (
+          primary:    0 .5rem 1rem rgba($primary, .15),
+          secondary:  0 .5rem 1rem rgba($secondary, .15),
+          success:    0 .5rem 1rem rgba($success, .15),
+          info:       0 .5rem 1rem rgba($info, .15),
+          warning:    0 .5rem 1rem rgba($warning, .15),
+          danger:     0 .5rem 1rem rgba($danger, .15),
+        ),
+        (
+          null: $box-shadow,
+          sm: $box-shadow-sm,
+          lg: $box-shadow-lg,
+          none: none,
+        )
+      )
+    ),
+
+
+  )
+);
+
+
+@import "bootstrap/scss/bootstrap";

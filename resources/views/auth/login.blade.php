@@ -6,40 +6,46 @@
 
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1 minimum-scale=1">
-  <link rel="canonical" href="$url">
+
+  <link rel="stylesheet" href="{{mix('css/bootstrap.css')}}">
+  <link rel="stylesheet" href="{{mix('css/main.css')}}">
+  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
 </head>
 
-<body style="background-color: rgb(242, 242, 242);">
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="card mb-3 mt-4 col-6">
-     <div class="card-body">
-       <h5 class="card-title">Acceder</h5>
-       <p class="card-text">Solo los administradores pueden acceder.</p>
-     </div>
+<body>
+<div class="container-xl">
+  <div class="row mt-5 justify-content-center">
+    <div class="col-10 col-md-6 col-lg-4">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h5 class="card-title">Pastelitos</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Acceder</h6>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="row mt-3 justify-content-center">
+    <div class="col-10 col-md-6 col-lg-4">
+      @error('email')
+      <div class="alert alert-danger shadow-danger" >{{ $message }}</div>
+    @enderror
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <form action='login' method='POST'>
+            @csrf
+            <div class="form-floating ">
+              <input type="email" class="form-control" name="email" id="username" placeholder="Nombre de usuario" required>
+              <label for="input-username" class="form-label">Nombre de usuario</label>
+            </div>
+            <div class="form-floating mt-3">
+              <input type="password" class="form-control" name="password" id="pass" placeholder="Contraseña">
+              <label for="input-password" class="form-label">Password</label>
+            </div>
 
-
-  <div class="row justify-content-center">
-    <div class="card  mb-3">
-      <div class="card-body">
-
-        <form action='login' method='POST'>
-          @csrf
-          <div class="form-group">
-            <label for="email">Username</label>
-            <input type="email" class="form-control" name="email" id="username" placeholder="Nombre de usuario" required>
-
-          </div>
-          <div class="form-group">
-            <label for="pass">Password</label>
-            <input type="password" class="form-control" name="password" id="pass" placeholder="Contraseña">
-          </div>
-
-          <button type="submit" class="btn btn-primary">Acceder</button>
-        </form>
+            <button type="submit" class="btn btn-primary mt-3 w-100">Ingresar</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
@@ -47,13 +53,9 @@
 
 <!-- Imports -->
 
-  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/coliff/bootstrap-rfs/bootstrap-rfs.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.materialdesignicons.com/5.1.45/css/materialdesignicons.min.css" >
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
+  <script src="{{mix('/js/manifest.js')}}"></script>
+  <script src="{{mix('/js/vendor.js')}}"></script>
+  <script src="{{mix('/js/main.js')}}"></script>
 
 </body>
 </html>

@@ -1,4 +1,5 @@
-function search(){
+import Modal from 'bootstrap/js/dist/modal'
+window.search = function search(){
   let arg = document.querySelector("#searchIngredient").value.split(" ").filter(String);
   let table = document.querySelector("#div-ingredientsAdd")
   if (arg === ""){
@@ -16,24 +17,21 @@ function search(){
             }
             let t = document.querySelector("#template-ingredientAdd").cloneNode(true).content;
 
-            t.querySelector("h5").textContent = `${ingredient.name}`
-            t.querySelector("button").setAttribute('onclick',`add(${ingredient.id})`);
+            t.querySelector("h6").textContent = `${ingredient.name}`
+            t.querySelector("a").setAttribute('onclick',`add(${ingredient.id})`);
 
             table.appendChild(t);
           }
-          $('#exampleModal').modal('show')
+          var myModal = new Modal('#modal-ingredientsSearch');
+          myModal.show()
         });
       }
     )
     .catch(function(err) {
       return false;
-
     });
 }
-
-
-function add(arg){
-
+window.add = function add(arg){
   fetch(`/admin/api/ingredients/${arg}`, {method: 'GET'})
     .then( function(response) {
         if (response.status !== 200) return false;
@@ -49,7 +47,7 @@ function add(arg){
           let t = document.querySelector("#template-ingredientAdded").cloneNode(true).content;
 
           t.querySelector(".div-ingredient").setAttribute('data-ingredient', ingredient.id)
-          t.querySelector("label").textContent = `${ingredient.name}`
+          t.querySelector("h6").textContent = `${ingredient.name}`
           t.querySelector("input").name = `${ingredient.id}`
           t.querySelector("span").textContent = `${ingredient.unit}`
           t.querySelector("button").setAttribute('onclick',`removeIngredient(${ingredient.id})`);
@@ -60,13 +58,16 @@ function add(arg){
     )
     .catch(function(err) {
       return false;
-
     });
-
 }
 
-function removeIngredient(arg){
+window.removeIngredient = function removeIngredient(arg){
   console.log('remove' + arg)
+
+  const index = recipe_ingredients.indexOf(arg);
+  if (index > -1) {
+    recipe_ingredients.splice(index, 1);
+  }
 
   let e = document.querySelector(`[data-ingredient="${arg}"]`)
   e.parentNode.removeChild(e);
