@@ -12,9 +12,20 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            // Authentication passed...
+            $request->session()->regenerate();
             return redirect()->intended('admin');
+        }else{
+            return back()->withErrors([
+                'email' => 'El usuario o contraseña ingresados son incorectos',
+            ]);
         }
-        return "F";
+    }
+
+     public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

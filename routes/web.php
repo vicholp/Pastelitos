@@ -14,6 +14,6 @@ use App\Models\Recipe;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('/', 'shop.index');
+Route::redirect('/', '/admin');
 Route::view('login', 'auth.login')->name('login');
 Route::post('login', [LoginController::class, 'authenticate']);

@@ -11,7 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/main.js', 'public/js');
+mix.js('resources/js/main.js', 'public/js').extract();;
 
 mix.js('resources/js_view/recipe_ingredients.js', 'public/js/').extract();
 

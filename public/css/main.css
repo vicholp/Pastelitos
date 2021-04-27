@@ -6,92 +6,10 @@
   font-family: Cookie;
   src: url("/src/fonts/Cookie-Regular.ttf");
 }
-nav {
-  width: 100vw;
-  min-height: 80px;
-}
-
-.img-vitrina {
-  height: 35vh;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-
-.img-portada {
-  height: 25vh;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
 .pacifico {
   font-family: Pacifico;
 }
 
 .cookie {
   font-family: Cookie;
-}
-
-.shadow-primary {
-  box-shadow: 0 0.5rem 1rem rgba(0, 123, 255, 0.15) !important;
-}
-
-.shadow-success {
-  box-shadow: 0 0.5rem 1rem rgba(30, 126, 52, 0.15) !important;
-}
-
-.shadow-danger {
-  box-shadow: 0 0.5rem 1rem rgba(248, 215, 218, 0.6) !important;
-}
-
-.shadow-info {
-  box-shadow: 0 0.5rem 1rem rgba(209, 236, 241, 0.6) !important;
-}
-
-.nav-icon {
-  font-size: 20px !important;
-}
-
-#div-stickyButtons {
-  display: block;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 99;
-}
-
-.overlay-div {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  background-color: #000;
-  opacity: 0.3;
-}
-
-/* Colors */
-.bg-ortopedia {
-  background-color: #461b7e;
-}
-
-.bg-orange {
-  background-color: #fd7e14;
-}
-
-.bg-black {
-  background-color: #222;
-}
-
-.bg-lightblue {
-  background-color: #E0FEFE;
-}
-
-.bg-blue {
-  background-color: #DEEEFF !important;
-}
-
-.bg-pink {
-  background-color: #FEBCC8 !important;
-}
-
-.text-pink {
-  color: #FEBCC8;
 }

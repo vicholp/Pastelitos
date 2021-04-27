@@ -53,11 +53,11 @@
         <div class="card">
           <div class="card-body">
             <div class="form-check form-switch">
-              <input type="checkbox" name="vegan" class="form-check-input" checked>
+              <input type="checkbox" name="vegan" class="form-check-input" checked disabled>
               <label class="form-check-label">Vegana</label>
             </div>
             <div class="form-check form-switch">
-              <input type="checkbox" name="gluten" class="form-check-input" checked>
+              <input type="checkbox" name="gluten" class="form-check-input" checked disabled>
               <label class="form-check-label">glutenFree</label>
             </div>
           </div>
