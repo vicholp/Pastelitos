@@ -12,7 +12,13 @@ class Ingredient extends Model
     use HasFactory;
     use SearchString;
 
-     protected $fillable = ['name', 'unit', 'unit_price', 'type'];
+    protected $fillable = ['name', 'unit', 'unit_price', 'type'];
+
+    protected $searchStringColumns = [
+        'name' => [
+            'searchable' => true       // Default to false.
+        ],
+    ];
 
     public function recipes()
     {

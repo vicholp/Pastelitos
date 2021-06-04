@@ -15,7 +15,7 @@
       <div class="card shadow">
         <div class="row no-gutters">
           <div class="col-md-4">
-            <img src="/src/ingredient.jpg" class="card-img" alt="Aqui iria la foto" style="max-height: 15vh; object-fit: cover;">
+            <img src="" class="card-img" alt="Aqui iria la foto" style="max-height: 15vh; object-fit: cover;" hidden>
           </div>
           <div class="col-md-8">
             <div class="card-body">

@@ -21,8 +21,8 @@
               {{$ingredient->type}} ~ quedan {{$ingredient->remaining_quantity}} [{{$ingredient->unit}}]
             </h6>
           </div>
+          <a class="stretched-link" href="/admin/ingredients/{{$ingredient->id}}"></a>
         </div>
-        <a class="stretched-link" href="/admin/ingredients/{{$ingredient->id}}"></a>
       </div>
     @empty
       <div class="col">

@@ -31,10 +31,27 @@
           <div class="card-body">
             <h5 class="card-title my-2 mb-4 text-center">General</h5>
             <select name="type" class="form-select mb-3" required>
-              <option selected disabled>Tipo de ingrediente</option>
-              <option value="consumable">Comida</option>
-              <option value="package">Paquete</option>
-              <option value="intangible">Intangible</option>
+              @if (!$ingredient)
+                <option selected disabled value="">Tipo de ingrediente</option>
+                <option value="consumable">Comida</option>
+                <option value="package">Paquete</option>
+                <option value="intangible">Intangible</option>
+              @elseif ($ingredient->type == "consumable")
+                <option disabled value="">Tipo de ingrediente</option>
+                <option selected value="consumable">Comida</option>
+                <option value="package">Paquete</option>
+                <option value="intangible">Intangible</option>
+              @elseif ($ingredient->type == "package")
+                <option disabled value="">Tipo de ingrediente</option>
+                <option value="consumable">Comida</option>
+                <option selected value="package">Paquete</option>
+                <option value="intangible">Intangible</option>
+              @elseif ($ingredient->type == "intangible")
+                <option disabled value="">Tipo de ingrediente</option>
+                <option value="consumable">Comida</option>
+                <option value="package">Paquete</option>
+                <option selected value="intangible">Intangible</option>
+              @endif
             </select>
 
             <div class="form-floating mb-3">
@@ -44,7 +61,7 @@
 
             <div class="form-floating mb-3">
               <input type="text" name="unit" class="form-control" placeholder="kg, l, u" value="{{$ingredient->unit ?? ''}}"required>
-              <label>Unidad</label>
+              <label>Unidad de medida</label>
             </div>
 
 
@@ -70,11 +87,10 @@
 
             <div class="form-floating mb-3">
               <input type="number" step="0.1" name="remaining_quantity" class="form-control" placeholder="1.5" value="{{$ingredient->remaining_quantity ?? ''}}" required>
-              <label>Cuanto te queda?</label>
+              <label>Cantidad restante</label>
             </div>
-            <div class="form-floating mb-3">
-              <input type="number" step="0.1" name="remaining_quantity_alert" class="form-control" placeholder="1.5" value="{{$ingredient->remaining_quantity_alert ?? ''}}" required>
-              <label>Cuando aviso?</label>
+            <div class="form-floating mb-3" hidden>
+              <input type="number" step="0.1" name="remaining_quantity_alert" class="form-control" placeholder="1.5" value="{{$ingredient->remaining_quantity_alert ?? '1'}}" required>
             </div>
           </div>
         </div>
